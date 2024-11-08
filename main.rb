@@ -3,8 +3,18 @@ require_relative "lib/player"
 
 game_board = GameBoard.new
 player1 = Player.new("X")
+player2 = Player.new("O")
 
-game_board.make_selection(0, 2, player1.selection)
+def play_round(game_board, player)
+  puts "Select a row 0-2"
+  row = Integer(gets)
+  puts "Select a column 0-2"
+  index = Integer(gets)
+  game_board.make_selection(row, index, player.symbol)
+end
+
 game_board.display_board
-
-game_board.make_selection(1, 2, player1.selection)
+play_round(game_board, player1)
+game_board.display_board
+play_round(game_board, player2)
+game_board.display_board

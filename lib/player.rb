@@ -1,7 +1,7 @@
 class Player
-  attr_reader :selection
+  attr_reader :symbol
 
-  def initialize(selection)
-    @selection = selection
+  def initialize(symbol)
+    @symbol = symbol
   end
 end
