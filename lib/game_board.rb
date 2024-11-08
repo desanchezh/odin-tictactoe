@@ -15,11 +15,7 @@ class GameBoard
   end
 
   def make_selection(row, index, player_string)
+    puts "space occupied" if @game_board[row][index] != "_"
     @game_board[row][index] = player_string
   end
 end
-
-game_board = GameBoard.new
-
-game_board.make_selection(0, 1, "X")
-game_board.display_board
