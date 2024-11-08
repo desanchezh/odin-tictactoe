@@ -3,9 +3,9 @@ class GameBoard
   attr_accessor :game_board
 
   def initialize
-    @game_board = [%w[1 2 3],
-                   %w[4 5 6],
-                   %w[7 8 9]]
+    @game_board = [%w[_ _ _],
+                   %w[_ _ _],
+                   %w[_ _ _]]
   end
 
   def display_board
@@ -42,11 +42,9 @@ class GameBoard
     diagonal_left = @game_board[0][0], @game_board[1][1], @game_board[2][2]
     diagonal_right = @game_board[0][2], @game_board[1][1], @game_board[2][0]
     if diagonal_left.uniq.count <= 1 && diagonal_left[0] != "_"
-      winning_symbol = @game_board[0][0]
-      puts "GAME OVER #{winning_symbol} wins!!"
+      puts "GAME OVER #{@game_board[0][0]} wins!!"
     elsif diagonal_right.uniq.count <= 1 && diagonal_right[0] != "_"
-      winning_symbol = @game_board[0][2]
-      puts "GAME OVER #{winning_symbol} wins!!"
+      puts "GAME OVER #{@game_board[0][2]} wins!!"
     end
   end
 end
