@@ -19,7 +19,7 @@ class GameBoard
     @game_board[row][index] = player_string
   end
 
-  def check_win
+  def check_horizontal_win
     # check horizonal wins
     @game_board.each do |array|
       if array.uniq.count <= 1 && array[0] != "_"
@@ -27,6 +27,9 @@ class GameBoard
         puts "GAME OVER #{winning_symbol} wins!!"
       end
     end
+  end
+
+  def check_vertical_win
     # check vertical wins
     vertical = @game_board[0].zip(@game_board[1], @game_board[2])
     vertical.each do |array|
