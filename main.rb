@@ -13,8 +13,25 @@ def play_round(game_board, player)
   game_board.make_selection(row, index, player.symbol)
 end
 
+def check_win(game_board)
+  game_board.game_board.each do |array| # check horizonal wins
+    if array.uniq.count <= 1 && array[0] != "_"
+      winning_symbol = array.dup.pop
+      puts "#{winning_symbol} wins!!"
+    end
+  end
+end
+
 game_board.display_board
-play_round(game_board, player1)
+game_board.make_selection(0, 0, "X")
 game_board.display_board
-play_round(game_board, player2)
+game_board.make_selection(0, 1, "X")
 game_board.display_board
+check_win(game_board)
+game_board.make_selection(0, 2, "X")
+check_win(game_board)
+game_board.display_board
+
+# loop the below until a win condition is met...create method to check for win
+# play_round(game_board, player1)
+# game_board.display_board
