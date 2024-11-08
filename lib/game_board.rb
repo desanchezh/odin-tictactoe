@@ -3,9 +3,9 @@ class GameBoard
   attr_accessor :game_board
 
   def initialize
-    @game_board = [%w[_ _ _],
-                   %w[_ _ _],
-                   %w[_ _ _]]
+    @game_board = [%w[1 O 3],
+                   %w[X O 6],
+                   %w[X O 9]]
   end
 
   def display_board
