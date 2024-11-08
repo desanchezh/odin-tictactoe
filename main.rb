@@ -2,7 +2,7 @@ require_relative "lib/game_board"
 require_relative "lib/player"
 
 # just barely meets requirements...ideas for future refactor below
-# end program if win message sent, verify input is in range/improve input method, message for tie
+# verify input is in range/improve input method, message for tie
 game_board = GameBoard.new
 player1 = Player.new("X")
 player2 = Player.new("O")
