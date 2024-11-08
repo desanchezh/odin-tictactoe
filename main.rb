@@ -13,7 +13,7 @@ def play_round(game_board, player)
   game_board.make_selection(row, index, player.symbol)
 end
 
-game_board.check_vertical_win
+game_board.check_diagonal_win
 
 # loop the below until a win condition is met...create method to check for win
 # play_round(game_board, player1)

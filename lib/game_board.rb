@@ -3,9 +3,9 @@ class GameBoard
   attr_accessor :game_board
 
   def initialize
-    @game_board = [%w[1 O 3],
-                   %w[X O 6],
-                   %w[X O 9]]
+    @game_board = [%w[1 2 3],
+                   %w[4 5 6],
+                   %w[7 8 9]]
   end
 
   def display_board
@@ -20,7 +20,6 @@ class GameBoard
   end
 
   def check_horizontal_win
-    # check horizonal wins
     @game_board.each do |array|
       if array.uniq.count <= 1 && array[0] != "_"
         winning_symbol = array.dup.pop
@@ -30,13 +29,24 @@ class GameBoard
   end
 
   def check_vertical_win
-    # check vertical wins
-    vertical = @game_board[0].zip(@game_board[1], @game_board[2])
-    vertical.each do |array|
+    verticals = @game_board[0].zip(@game_board[1], @game_board[2])
+    verticals.each do |array|
       if array.uniq.count <= 1 && array[0] != "_"
         winning_symbol = array.dup.pop
         puts "GAME OVER #{winning_symbol} wins!!"
       end
+    end
+  end
+
+  def check_diagonal_win
+    diagonal_left = @game_board[0][0], @game_board[1][1], @game_board[2][2]
+    diagonal_right = @game_board[0][2], @game_board[1][1], @game_board[2][0]
+    if diagonal_left.uniq.count <= 1 && diagonal_left[0] != "_"
+      winning_symbol = @game_board[0][0]
+      puts "GAME OVER #{winning_symbol} wins!!"
+    elsif diagonal_right.uniq.count <= 1 && diagonal_right[0] != "_"
+      winning_symbol = @game_board[0][2]
+      puts "GAME OVER #{winning_symbol} wins!!"
     end
   end
 end
