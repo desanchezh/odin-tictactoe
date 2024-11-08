@@ -18,4 +18,22 @@ class GameBoard
     puts "space occupied" if @game_board[row][index] != "_"
     @game_board[row][index] = player_string
   end
+
+  def check_win
+    # check horizonal wins
+    @game_board.each do |array|
+      if array.uniq.count <= 1 && array[0] != "_"
+        winning_symbol = array.dup.pop
+        puts "GAME OVER #{winning_symbol} wins!!"
+      end
+    end
+    # check vertical wins
+    vertical = @game_board[0].zip(@game_board[1], @game_board[2])
+    vertical.each do |array|
+      if array.uniq.count <= 1 && array[0] != "_"
+        winning_symbol = array.dup.pop
+        puts "GAME OVER #{winning_symbol} wins!!"
+      end
+    end
+  end
 end
